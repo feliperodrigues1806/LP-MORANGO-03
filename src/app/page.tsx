@@ -118,7 +118,7 @@ export default function SalesPage() {
                         Você vai fazer o Morango do Amor Perfeito ainda hoje – <span className="text-primary">mesmo que nunca tenha acertado um doce na vida.</span>
                     </h1>
                     <div className="my-8">
-                        
+                        <Image src="https://i.imgur.com/iFVHloq.gif" alt="Morango do Amor Perfeito" width={400} height={400} className="mx-auto rounded-full" priority data-ai-hint="dessert recipe" />
                     </div>
                     <p className="mx-auto mt-6 max-w-2xl text-base text-foreground/80 sm:text-lg">
                         Revelamos o TRUQUE do Morango do Amor que ninguém te conta com nosso app: com imagens, vídeo e explicações claras – sem enrolação.
@@ -198,7 +198,7 @@ export default function SalesPage() {
                     <h2 className="font-headline text-2xl font-bold sm:text-3xl">Você vai fazer Morangos do Amor como esses:</h2>
                     <p className="mt-4 max-w-3xl mx-auto text-base text-foreground/80 sm:text-lg">Imagine entregar um doce digno de vitrine, com uma casquinha crocante e brilhante. Mesmo que você tenha ZERO experiência na cozinha.</p>
                     <div className="mt-8 max-w-3xl mx-auto">
-                        <Carousel opts={{ loop: true }} className="w-full">
+                        <Carousel opts={{ loop: true, dragFree: false }} className="w-full">
                             <CarouselContent>
                                 {carouselImages.map((image, index) => (
                                     <CarouselItem key={index}>
