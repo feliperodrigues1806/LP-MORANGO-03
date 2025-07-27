@@ -5,10 +5,17 @@ import Image from "next/image";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Heart, Smartphone, Video, BookOpen, Gift, XCircle, CheckCircle2, AlarmClock, MessageSquare } from "lucide-react";
 import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react'
+import useEmblaCarousel from 'embla-carousel-react';
+import dynamic from 'next/dynamic';
+
+const Carousel = dynamic(() => import('@/components/ui/carousel').then(mod => mod.Carousel), { ssr: false });
+const CarouselContent = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselContent), { ssr: false });
+const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselItem), { ssr: false });
+const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselNext), { ssr: false });
+const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: false });
+
 
 function CountdownTimer() {
     const [timeLeft, setTimeLeft] = React.useState({
@@ -55,7 +62,7 @@ function CountdownTimer() {
 export default function SalesPage() {
     const checkoutUrl = "https://www.ggcheckout.com/checkout/v2/JM3AHuV1i75ZU4ka1lYx";
     const whatsappUrl = "https://wa.me/5511914758577";
-    const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true });
+    const [emblaRef] = useEmblaCarousel({ loop: true });
     const [year, setYear] = React.useState(new Date().getFullYear());
 
     React.useEffect(() => {
@@ -192,7 +199,7 @@ export default function SalesPage() {
                     <h2 className="font-headline text-2xl font-bold sm:text-3xl">Você vai fazer Morangos do Amor como esses:</h2>
                     <p className="mt-4 max-w-3xl mx-auto text-base text-foreground/80 sm:text-lg">Imagine entregar um doce digno de vitrine, com uma casquinha crocante e brilhante. Mesmo que você tenha ZERO experiência na cozinha.</p>
                     <div className="mt-8 max-w-3xl mx-auto">
-                        <Carousel ref={emblaRef} opts={{ loop: true, dragFree: true }} className="w-full">
+                        <Carousel ref={emblaRef} opts={{ loop: true }} className="w-full">
                             <CarouselContent>
                                 {carouselImages.map((image, index) => (
                                     <CarouselItem key={index}>
