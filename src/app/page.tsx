@@ -302,4 +302,5 @@ export default function SalesPage() {
             </footer>
         </div>
     );
-}
+
+    
