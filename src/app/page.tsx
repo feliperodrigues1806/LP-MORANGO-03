@@ -62,7 +62,7 @@ function CountdownTimer() {
 export default function SalesPage() {
     const checkoutUrl = "https://www.ggcheckout.com/checkout/v2/JM3AHuV1i75ZU4ka1lYx";
     const whatsappUrl = "https://wa.me/5511914758577";
-    const [emblaRef] = useEmblaCarousel({ loop: true });
+    const [emblaRef] = useEmblaCarousel({ loop: true, draggable: false });
     const [year, setYear] = React.useState(new Date().getFullYear());
 
     React.useEffect(() => {
